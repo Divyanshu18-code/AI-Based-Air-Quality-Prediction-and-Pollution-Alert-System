@@ -8,9 +8,9 @@
 
 ## 🎉 Project Overview
 
-**Revolutionary AI system for real-time air quality prediction using satellite data, meteorological inputs, and advanced machine learning algorithms.**
+> 🎓 **This is a Major Project** submitted as part of my academic major project requirements.
 
-This project was developed for the **Bharatiya Antariksh Hackathon 2025** and leverages cutting-edge technologies to provide accurate AQI predictions across India.
+**Revolutionary AI system for real-time air quality prediction using satellite data, meteorological inputs, and advanced machine learning algorithms.**
 
 ### 🚀 Key Achievements
 - **95.7%** prediction accuracy on test data
@@ -48,23 +48,85 @@ This project was developed for the **Bharatiya Antariksh Hackathon 2025** and le
 
 ```mermaid
 graph TD
-    A[Satellite Data] -->|INSAT-3DR| D[Data Processing]
-    B[Meteorological] -->|MERRA-2| D
-    C[Ground Stations] -->|CPCB| D
+    subgraph DS["📡 Data Sources Layer"]
+        A1[🛰️ INSAT-3DR Satellite]
+        A2[🌦️ MERRA-2 Meteorological]
+        A3[📍 CPCB Ground Stations]
+        A4[🏭 IMD Weather Data]
+    end
 
-    D --> E[ML Pipeline]
-    E --> F[Random Forest]
-    E --> G[LSTM Networks]
-    E --> H[Q-Learning]
+    subgraph IN["🔄 Data Ingestion Layer"]
+        B1[Real-time Stream Collector]
+        B2[Batch Data Loader]
+        B3[API Gateway / Webhooks]
+    end
 
-    F --> I[Predictions API]
-    G --> I
-    H --> I
+    subgraph PR["⚙️ Data Processing Layer"]
+        C1[Data Cleaning & Validation]
+        C2[Feature Engineering]
+        C3[Geospatial Processing]
+        C4[MongoDB Database]
+    end
 
-    I --> J[React Frontend]
-    J --> K[Interactive Maps]
-    J --> L[Real-time Charts]
-    J --> M[Policy Simulator]
+    subgraph ML["🤖 AI / ML Layer"]
+        D1[Random Forest - AQI Prediction]
+        D2[LSTM - Time Series Forecast]
+        D3[XGBoost - Pollutant Estimation]
+        D4[K-Means - Source Clustering]
+        D5[Q-Learning - Policy Optimizer]
+    end
+
+    subgraph API["🔌 Backend API Layer"]
+        E1[Node.js REST API]
+        E2[Python Flask ML Server]
+        E3[WebSocket Server]
+    end
+
+    subgraph OUT["🖥️ Output Layer"]
+        F1[React Dashboard]
+        F2[📊 Real-time Charts]
+        F3[🗺️ Pollution Heatmaps]
+        F4[📱 Mobile PWA]
+        F5[🔔 SMS / Email Alerts]
+        F6[📄 PDF / CSV Reports]
+        F7[🧪 Policy Simulator]
+    end
+
+    A1 --> B1
+    A2 --> B2
+    A3 --> B1
+    A4 --> B2
+
+    B1 --> B3
+    B2 --> B3
+    B3 --> C1
+
+    C1 --> C2
+    C2 --> C3
+    C3 --> C4
+
+    C4 --> D1
+    C4 --> D2
+    C4 --> D3
+    C4 --> D4
+    C4 --> D5
+
+    D1 --> E2
+    D2 --> E2
+    D3 --> E2
+    D4 --> E2
+    D5 --> E2
+
+    E2 --> E1
+    E1 --> E3
+
+    E1 --> F1
+    E3 --> F2
+    E1 --> F3
+    E1 --> F4
+    E1 --> F5
+    E1 --> F6
+    E1 --> F7
 ```
 
 ## 🚀 Quick Start
@@ -157,27 +219,9 @@ python predict.py   # ML Pipeline
 
 ## 🔧 API Documentation
 
-### Base URL
-```
-https://api.aqi-prediction.com/v1
-```
 
 ### Endpoints
 
-#### Get Current AQI
-```http
-GET /aqi/current?city={city_name}
-```
-
-#### Get Forecast
-```http
-GET /aqi/forecast?city={city_name}&days={1-7}
-```
-
-#### Get Historical Data
-```http
-GET /aqi/historical?city={city_name}&start={date}&end={date}
-```
 
 ### Example Response
 ```json
@@ -253,18 +297,14 @@ Please read [CONTRIBUTING.md](docs/CONTRIBUTING.md) for details on our code of c
 - **Documentation**: [docs.aqi-prediction.com](https://docs.aqi-prediction.com)
 - **API Reference**: [api.aqi-prediction.com/docs](https://api.aqi-prediction.com/docs)
 - **Email**: support@aqi-prediction.com
-- **Community**: [Discord](https://discord.gg/aqi-prediction)
 
-## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
 - **ISRO** for satellite data and technical support
 - **NASA** for MERRA-2 reanalysis data
 - **CPCB** for ground monitoring data
-- **Bharatiya Antariksh Hackathon** team for the opportunity
 
 ---
 
@@ -273,7 +313,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
     <strong>Made with ❤️ for cleaner air in India</strong>
   </p>
   <p>
-    <a href="https://isro-hackathon.onrender.com">🚀 Try Live Demo</a> •
-    <a href="https://github.com/Soumen044/AQI-Prediction-System">⭐ Star on GitHub</a>
+    <a href="https://github.com/Divyanshu18-code/AI-Based-Air-Quality-Prediction-and-Pollution-Alert-System">⭐ Star on GitHub</a>
   </p>
 </div>
