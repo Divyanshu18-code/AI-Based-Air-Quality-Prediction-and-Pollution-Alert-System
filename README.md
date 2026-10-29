@@ -141,7 +141,7 @@ graph TD
 
 ```bash
 # Clone repository
-git clone https://github.com/Soumen044/AQI-Prediction-System.git
+git clone https://github.com/Divyanshu18-code/AI-Based-Air-Quality-Prediction-and-Pollution-Alert-System
 cd AQI-Prediction-System
 
 # Backend setup
